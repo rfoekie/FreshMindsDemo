@@ -13,8 +13,8 @@ public class TaskManager {
     private final Map<Integer, Task> tasks = new LinkedHashMap<>();
 
     public synchronized void schedule(Task task) {
-        int id = count.getAndIncrement();
-        tasks.put(id, task);
+        task.id = count.getAndIncrement();
+        tasks.put(task.id, task);
         EXECUTOR_SERVICE.submit(task);
     }
 

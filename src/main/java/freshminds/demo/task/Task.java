@@ -1,6 +1,12 @@
 package freshminds.demo.task;
 
-public interface Task extends Runnable {
+public abstract class Task implements Runnable {
+
+    int id = -1;
+
+    public int getId() {
+        return id;
+    }
 
     public abstract TaskState getState();
 }
